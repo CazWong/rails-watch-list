@@ -1,7 +1,9 @@
-<h1>Lists#index</h1>
+<h1>My lists</h1>
 <ul>
- <% @list.each do |l| %>
-  <li> <%= link_to l.name, list_show_path(@list) %> </li>
+ <% @lists.each do |list| %>
+   <li> <%= link_to list.name, list_path(list) %> </li>
     <% end %>
 </ul>
-<p>Find me in app/views/lists/index.html.erb</p>
+
+<%# // BUTTON // %>
+<button type="button" class="btn btn-primary text-white"><%= link_to 'Create a movie list', new_list_path %></button>
