@@ -1,9 +1,15 @@
-<h1>My lists</h1>
-<ul>
- <% @lists.each do |list| %>
-   <li> <%= link_to list.name, list_path(list) %> </li>
-    <% end %>
-</ul>
+<div class="home-banner">
+  <h1>My lists</h1>
+</div>
 
-<%# // BUTTON // %>
-<button type="button" class="btn btn-primary text-white"><%= link_to 'Create a movie list', new_list_path %></button>
+
+  <% @lists.each do |list| %>
+<div class="card" style="width: 18rem;">
+  <ul>
+    <li> <%= link_to list.name, list_path(id: list.id) %> </li>
+      <% end %>
+  </ul>
+</div>
+
+  <%# // BUTTON // %>
+<button type="button" class="btn btn-primary"><%= link_to 'Create a movie list', new_list_path %></button>

@@ -1,9 +1,19 @@
 <h1><%= @list.name %></h1>
-<ul>
-    <% @movies.each do |l| %>
-      <li> <%= link_to l.name, lists_show_path(l.id) %> </li>
-       <% end %>
-</ul>
+<div>
+  <%= link_to "Add a movie", new_list_bookmark_path(list_id: @list.id) %>
+</div>
+
+<div>
+  <% @list.bookmarks.each do |bookmark| %>
+      <%= image_tag bookmark.movie.poster_url, height: 200 %>
+    <h3><%= bookmark.movie.title %> <%= bookmark.movie.rating %></h3>
+    <p><%= bookmark.movie.overview %></p>
+    <%# // BUTTON // %>
+  <% end %>
+</div>
+
+    <%= link_to 'Back to movie list',  lists_path %>
+
 
 
 <p>Find me in app/views/lists/show.html.erb</p>

@@ -10,11 +10,12 @@ class BookmarksController < ApplicationController
     @bookmark.list = @list
     @bookmark.movie = @movie
     @bookmark.save(params_bookmark)
-    if @bookmark.save
-      redirect_to ?_path, notice: "Bookmark saved!"
+    if @bookmark.valid?
+      @bookmark.save
     else
-      render :new
+      @bookmark = Bookmark.new(list_id: params[:list_id])
     end
+    redirect_to list_path(id: @bookmark.list_id), notice: "Bookmark saved!"
   end
 
   def destroy

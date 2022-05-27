@@ -1,2 +1,11 @@
 <h1>Bookmarks#new</h1>
+
+<%= simple_form_for :movie do |f| %>
+  <%= f.input :title %>
+  <%= f.input :overview %>
+  <%= f.input :rating %>
+  <%= f.submit "Add movie", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to 'Back to list',  list_path(params[:list_id]) %>
 <p>Find me in app/views/bookmarks/new.html.erb</p>
