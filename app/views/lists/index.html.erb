@@ -2,13 +2,16 @@
   <h1>My lists</h1>
 </div>
 
-
-  <% @lists.each do |list| %>
-<div class="card" style="width: 18rem;">
-  <ul>
-    <li> <%= link_to list.name, list_path(id: list.id) %> </li>
-      <% end %>
-  </ul>
+<div class="lists-container container">
+  <div class="d-flex flex-wrap">
+    <% @lists.each do |list| %>
+      <div style="padding: 10px" class="col-6">
+        <div class="card-category" c="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+          <%= link_to list.name, list_path(id: list.id) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 
   <%# // BUTTON // %>
